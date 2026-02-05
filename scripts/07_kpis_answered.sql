@@ -5,7 +5,7 @@
 -- Answer KPIs
  -- 1 What is the overall Gross Merchandise Value?
  -- 2 How GMV compares to Average Order Value using Order Count?
- -- 3 Metrics of Sellers with more than 10 orders
+ -- 3 Combined Metrics of Sellers with more than 10 orders
  -- 4 Which are the top 3 states for each Product Category?
  -- 5 How much each State contributes towards total GMV?
  -- 6 Monthly Revenue Growth for each State
