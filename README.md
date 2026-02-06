@@ -15,7 +15,7 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 2. Download the dataset from the source listed below.
 3. Extract the CSV files into the `data/` directory.
 4. From `scripts/`, run each script manually in order  
-   **or** execute the full pipeline using: `scripts/run_all/00_run_all.sql`   
+   **or** execute the full pipeline using: `scripts/run_all/00_run_all.sql`.
 5. Generate visualizations using the R scripts in `viz_files/`.
 
 ## Data Source
@@ -27,6 +27,12 @@ You can download the dataset from:
 https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 After downloading, extract the CSV files into:
-`data/`
+`data/`.
 
 The SQL scripts in `scripts/` assume this folder structure.
+
+## Project Notes
+- Every script comes with comments that give basic understanding of the code chunks and workflow.
+- Any additional details, issues faced or project decisions are documented in `/documentation.md`.
+- This repository assumes basic knowledge like installation, launch and setup of MySQL and R.
+- 
