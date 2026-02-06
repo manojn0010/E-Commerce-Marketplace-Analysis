@@ -35,4 +35,17 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Every script comes with comments that give basic understanding of the code chunks and workflow.
 - Any additional details, issues faced or project decisions are documented in `/documentation.md`.
 - This repository assumes basic knowledge like installation, launch and setup of MySQL and R.
-- 
+- The project showcases working of ETL/ELT, data cleaning, analysis and company KPI exploration.
+
+## Answered Key Performance Indicators (KPIs)
+-- 1 What is the overall Gross Merchandise Value?
+-- 2 How GMV compares to Average Order Value and Total Order Count?
+-- 3 Combined Metrics of Sellers with more than 10 orders
+-- 4 Which are the top 3 states for each Product Category?
+-- 5 How much each State contributes towards total GMV?
+-- 6 Monthly Revenue Growth for each State
+
+## References
+ Dataset obtained from Kaggle.
+ Exploration and analysis done on MySQL.
+ Visualised using R.
