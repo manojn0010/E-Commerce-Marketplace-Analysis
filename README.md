@@ -11,7 +11,7 @@ Visualised using: R
 1)  clone repository
 2)  download the dataset from the given source
 3)  from `scripts/`, run each script manually in order
-   or
+ or
     perform the SQL end using `scripts/run_all/00_run_all.sql`
 4)  visualise using R files in `viz_files/`
 
