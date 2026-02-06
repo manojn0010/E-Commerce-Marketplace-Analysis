@@ -15,7 +15,7 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 2. Download the dataset from the source listed below.
 3. Extract the CSV files into the `data/` directory.
 4. From `scripts/`, run each script manually in order  
-   **or** execute the full pipeline using: scripts/run_all/00_run_all.sql   
+   **or** execute the full pipeline using: `scripts/run_all/00_run_all.sql`   
 5. Generate visualizations using the R scripts in `viz_files/`.
 
 ## Data Source
