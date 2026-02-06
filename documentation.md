@@ -1,3 +1,5 @@
+## issues i ran into
+
 -- 4 product details
 load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_products_dataset.csv"
 into table products
@@ -65,4 +67,5 @@ escaped by '"'
 lines terminated by '\n'
 ignore 1 lines;
 -- error code: 1062. duplicate entry '3242cc306a9218d0377831e175d62fbf' for key 'reviews.primary'
+
 
