@@ -27,6 +27,6 @@ You can download the dataset from:
 https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 After downloading, extract the CSV files into:
-data/
+`data/`
 
 The SQL scripts in `scripts/` assume this folder structure.
