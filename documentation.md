@@ -1,26 +1,31 @@
-## issues i ran into
 
--- 4 product details
+
+**Errors fixed during project:**
+
+*occured during load phase due to inconsistent csv data files*  
+*the error is given along with the --step and query*
+
+-- 4 product details  
 load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_products_dataset.csv"
 into table products
 fields terminated by ','
 optionally enclosed by '"'   
 escaped by '"'               
 lines terminated by '\n'
-ignore 1 lines;                                                                              
+ignore 1 lines;                                                                                
 -- error1: error code: 1366. incorrect integer value: '' for column 'name_len' at row 105
 
--- 5 order details
+-- 5 order details   
 load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_orders_dataset.csv"
 into table orders
 fields terminated by ','
 optionally enclosed by '"'  
 escaped by '"'               
 lines terminated by '\n'
-ignore 1 lines;                                                                               
--- error code: 1292. incorrect datetime value: '' for column 'carrier_dlvydate' at row 6
+ignore 1 lines;                                                                                 
+-- error code: 1292. incorrect datetime value: '' for column 'carrier_dlvydate' at row 6  
 
-load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_orders_dataset.csv'
+load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_orders_dataset.csv'  
 into table orders
 fields terminated by ','
 optionally enclosed by '"'
@@ -38,34 +43,32 @@ set
   est_dlvy           = nullif(@est_delivery_ts, '');
 -- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`orders`, constraint `orders_ibfk_1` foreign key (`c_id`) references `customers` (`c_id`))
 
--- 6 order items
+-- 6 order items  
 load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_items_dataset.csv"
 into table order_items
 fields terminated by ','
 optionally enclosed by '"'   
 escaped by '"'                
 lines terminated by '\n'
-ignore 1 lines;
--- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`order_items`, constraint `order_items_ibfk_1` foreign key (`o_id`) references `orders` (`o_id`))
+ignore 1 lines;  
+-- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`order_items`, constraint `order_items_ibfk_1` foreign key (`o_id`) references `orders` (`o_id`))  
 
--- 7 payment details
+-- 7 payment details  
 load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_payments_dataset.csv"
 into table payments
 fields terminated by ','
 optionally enclosed by '"'   
 escaped by '"'               
 lines terminated by '\n'
-ignore 1 lines;  
--- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`payments`, constraint `payments_ibfk_1` foreign key (`o_id`) references `orders` (`o_id`))
+ignore 1 lines;    
+-- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`payments`, constraint `payments_ibfk_1` foreign key (`o_id`) references `orders` (`o_id`))  
 
--- 8 order reviews 
+-- 8 order reviews   
 load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_reviews_dataset.csv"
 into table reviews
 fields terminated by ','
 optionally enclosed by '"'   
 escaped by '"'               
 lines terminated by '\n'
-ignore 1 lines;
--- error code: 1062. duplicate entry '3242cc306a9218d0377831e175d62fbf' for key 'reviews.primary'
-
-
+ignore 1 lines;  
+-- error code: 1062. duplicate entry '3242cc306a9218d0377831e175d62fbf' for key 'reviews.primary'  
