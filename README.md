@@ -46,6 +46,6 @@ The SQL scripts in `scripts/` assume this folder structure.
 6. Monthly Revenue Growth for each State
 
 ## References
-- Dataset obtained from Kaggle.
-- Exploration and analysis done on MySQL.
-- Visualised using R.
+- Dataset obtained from **Kaggle**.
+- Exploration and analysis done on **MySQL**.
+- Visualised using **R**.
