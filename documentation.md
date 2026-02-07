@@ -1,12 +1,10 @@
+**Errors fixed during load phase:**
 
-
-**Errors fixed during project:**
-
-*occured during load phase due to inconsistent csv data files*  
-*the error is given along with the --step and query*
+*the error is given along with the --step and query*  
+*performed in a native computer, the `/path` is not relative to final scripts in repo*
 
 -- 4 product details  
-load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_products_dataset.csv"
+load data infile "/path"
 into table products
 fields terminated by ','
 optionally enclosed by '"'   
@@ -16,7 +14,7 @@ ignore 1 lines;
 -- error1: error code: 1366. incorrect integer value: '' for column 'name_len' at row 105
 
 -- 5 order details   
-load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_orders_dataset.csv"
+load data infile "/path"
 into table orders
 fields terminated by ','
 optionally enclosed by '"'  
@@ -25,7 +23,7 @@ lines terminated by '\n'
 ignore 1 lines;                                                                                 
 -- error code: 1292. incorrect datetime value: '' for column 'carrier_dlvydate' at row 6  
 
-load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_orders_dataset.csv'  
+load data infile "/path"  
 into table orders
 fields terminated by ','
 optionally enclosed by '"'
@@ -44,7 +42,7 @@ set
 -- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`orders`, constraint `orders_ibfk_1` foreign key (`c_id`) references `customers` (`c_id`))
 
 -- 6 order items  
-load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_items_dataset.csv"
+load data infile "/path"
 into table order_items
 fields terminated by ','
 optionally enclosed by '"'   
@@ -54,7 +52,7 @@ ignore 1 lines;
 -- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`order_items`, constraint `order_items_ibfk_1` foreign key (`o_id`) references `orders` (`o_id`))  
 
 -- 7 payment details  
-load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_payments_dataset.csv"
+load data infile "/path"
 into table payments
 fields terminated by ','
 optionally enclosed by '"'   
@@ -64,7 +62,7 @@ ignore 1 lines;
 -- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`payments`, constraint `payments_ibfk_1` foreign key (`o_id`) references `orders` (`o_id`))  
 
 -- 8 order reviews   
-load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_reviews_dataset.csv"
+load data infile "/path"
 into table reviews
 fields terminated by ','
 optionally enclosed by '"'   
@@ -73,4 +71,19 @@ lines terminated by '\n'
 ignore 1 lines;  
 -- error code: 1062. duplicate entry '3242cc306a9218d0377831e175d62fbf' for key 'reviews.primary'  
 
+*occured due to inconsistent csv data files*  
+*errors include incorrect datatype, orphan keys and duplicate entries*  
+*only the final queries retained in `scripts/`*  
 
+**Data Cleaning phase:**  
+
+- stage_tables act as a temporary table before final_table is populated, dropped later  
+- orphan customers having no valid details, are dropped during load  
+- fixed product_category names  
+- cross-checked geolocation data  
+- city names not suitable for working or fixing, hence analysis is done using zip_prefix and state_code  
+- quantitative data driven analysis, review messages in unknown language, hence dropped  
+- geolocation contains several duplicates, only a single record of each retained  
+
+**Procedures, Functions and Views:**
+- additional tables 'orders_by_date' and 'seller_metrics_by_state' are updated based on start_date to end_date (yyyy-mm-dd format) and 
