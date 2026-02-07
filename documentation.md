@@ -40,7 +40,7 @@ set
   approved_at        = nullif(@approved_ts, ''),
   carrier_dlvydate   = nullif(@carrier_ts, ''),
   dlvy_date          = nullif(@delivery_ts, ''),
-  est_dlvy           = nullif(@est_delivery_ts, '');
+  est_dlvy           = nullif(@est_delivery_ts, '');  
 -- error code: 1452. cannot add or update a child row: a foreign key constraint fails (`e_com`.`orders`, constraint `orders_ibfk_1` foreign key (`c_id`) references `customers` (`c_id`))
 
 -- 6 order items  
@@ -72,4 +72,5 @@ escaped by '"'
 lines terminated by '\n'
 ignore 1 lines;  
 -- error code: 1062. duplicate entry '3242cc306a9218d0377831e175d62fbf' for key 'reviews.primary'  
+
 
