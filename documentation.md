@@ -21,8 +21,8 @@ error code: 1452. cannot add or update a child row: a foreign key constraint fai
 
 ### Data Cleaning phase:    
 
-- stage_tables act as a temporary table before final_table is populated, dropped later  
-- fixed product_category names  
+- stage_tables act as temporary tables before final tables are populated, dropped later  
+- fixed product_category names, and updated the english names    
 - cross-checked geolocation data  
 - city names not suitable for working or fixing, hence analysis is done using zip_prefix and state_code  
 - quantitative data driven analysis, review messages in unknown language, hence dropped  
@@ -30,5 +30,6 @@ error code: 1452. cannot add or update a child row: a foreign key constraint fai
 
 **Procedures, Functions and Views:**
 - additional tables 'orders_by_date' and 'seller_metrics_by_state' are updated based on start_date to end_date (yyyy-mm-dd format) and 
+
 
 
