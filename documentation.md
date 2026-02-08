@@ -1,4 +1,4 @@
-#### Errors fixed during load phase
+### Errors fixed during load phase
 
 ***Incorrect Datatype***                                                                                   
 **error code: 1366. incorrect integer value: '' for column 'name_len' at row 105                                                                                 
@@ -19,7 +19,7 @@ error code: 1452. cannot add or update a child row: a foreign key constraint fai
 - occurred due to inconsistent csv data files  
 - only the final queries retained in `scripts/`    
 
-#### Data Cleaning phase:    
+### Data Cleaning phase:    
 
 - stage_tables act as a temporary table before final_table is populated, dropped later  
 - fixed product_category names  
@@ -30,4 +30,5 @@ error code: 1452. cannot add or update a child row: a foreign key constraint fai
 
 **Procedures, Functions and Views:**
 - additional tables 'orders_by_date' and 'seller_metrics_by_state' are updated based on start_date to end_date (yyyy-mm-dd format) and 
+
 
