@@ -8,7 +8,7 @@ Project: E-COM Analytics
 
 **Incorrect Datatypes**
 - Error code 1366: Incorrect integer value `''` for column `name_len`
-- Error code 1292: Incorrect datetime value `''` for column `carrier_dlvydate`
+- Error code 1292: Incorrect datetime value `''` for column `carrier_dlvydate`  
 **Resolution:**  
 Used session variables during load to validate and safely convert invalid values.
 
@@ -16,13 +16,13 @@ Used session variables during load to validate and safely convert invalid values
 **Orphan Keys**
 - Error code 1452: Foreign key constraint failure on `orders.c_id` referencing `customers.c_id`
 - Error code 1452: Foreign key constraint failure on `order_items.o_id` referencing `orders.o_id`
-- Error code 1452: Foreign key constraint failure on `payments.o_id` referencing `orders.o_id`
+- Error code 1452: Foreign key constraint failure on `payments.o_id` referencing `orders.o_id`  
 **Resolution:**  
 Built staging tables and filtered records based on the presence of valid keys in parent tables.
 
 
 **Duplicate Records**
-- Error code 1062: Duplicate entry for primary key in `reviews`
+- Error code 1062: Duplicate entry for primary key in `reviews`  
 **Resolution:**  
 Applied a `ROW_NUMBER()` window function partitioned by `review_id` and ordered by `submit_timestamp`.  
 Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
@@ -45,3 +45,4 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 ### Procedures, Functions, and Views
 - Additional tables such as `orders_by_date` and `seller_metrics_by_state` are updated based on a user-defined date range (`YYYY-MM-DD` format)
+
