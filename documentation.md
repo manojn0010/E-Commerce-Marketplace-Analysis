@@ -2,8 +2,8 @@
 Project: E-COM Analytics
 
 ### Overview
-
 This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.
+---
 
 ### Key Performance Indicators (KPIs)
 1. Gross Merchandise Value (GMV)  
@@ -18,53 +18,53 @@ This document provides detailed technical documentation for the *E-COM Analytics
 > How much each state contributes towards GMV 
 6. State-wise Monthly Growth  
 > How sales vary across states on a rolling monthly basis
+---
 
 ### Errors Fixed During Load Phase
 
 **Incorrect Datatypes**
 - Error code 1366: Incorrect integer value `''` for column `name_len`
 - Error code 1292: Incorrect datetime value `''` for column `carrier_dlvydate`  
-**Resolution:**  
-Used session variables during load to validate and safely convert invalid values.
-
+**Resolution:** Used session variables during load to validate and safely convert invalid values.
 
 **Orphan Keys**
 - Error code 1452: Foreign key constraint failure on `orders.c_id` referencing `customers.c_id`
 - Error code 1452: Foreign key constraint failure on `order_items.o_id` referencing `orders.o_id`
 - Error code 1452: Foreign key constraint failure on `payments.o_id` referencing `orders.o_id`  
-**Resolution:**  
-Built staging tables and filtered records based on the presence of valid keys in parent tables.
-
+**Resolution:** Built staging tables and filtered records based on the presence of valid keys in parent tables.
 
 **Duplicate Records**
 - Error code 1062: Duplicate entry for primary key in `reviews`  
-**Resolution:**  
-Applied a `ROW_NUMBER()` window function partitioned by `review_id` and ordered by `submit_timestamp`.  
+**Resolution:** Applied a `ROW_NUMBER()` window function partitioned by `review_id` and ordered by `submit_timestamp`.  
 Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 **Summary:**
 - Errors included incorrect datatypes, orphan keys, and duplicate entries.
 - These issues occurred due to inconsistent CSV data files.
 - Only final, corrected queries are retained in the `scripts/` directory.
+---
 
 ### Data Cleaning Phase
-
 - Staging tables act as temporary structures before final tables are populated and are dropped afterward.
 - Product category names were standardized and mapped to English equivalents.
 - Geolocation data was cross-checked for consistency.
 - City names were inconsistent; analysis was performed using `zip_prefix` and `state_code`.
 - Review text data was excluded due to language inconsistency.
 - Duplicate geolocation records were reduced to a single retained entry.
-
 ---
 
-### Procedures, Functions, and Views
+### Procedures
 1. run_orders_by_date    
-`> update table orders_by_date`    
-`> input: from_date(yyyy-mm-dd), to_date(yyyy-mm-dd)  `  
-> truncates the table and updates orders between from_date and to_date    
-2. 
+> purpose: update orders_by_date based on dates 
+> input(s): start_date(yyyy-mm-dd), end_date(yyyy-mm-dd)    
+> truncates the table orders_by_date and updates orders from start_date to end_date    
+2. update_seller_metrics
+> purpose: update seller_metrics_by_state
+> input(s): none. direct procedure that updates seller metrics
+> aggregated results of seller_metrics by state
+---
 
+### Functions, and Views
 
 
 
