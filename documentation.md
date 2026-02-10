@@ -81,21 +81,21 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 ### Views  
 1. order_costs  
 > purpose: to obtain basic order data  
-> tables: 'orders' and `customers` 
+> tables: `orders` and `customers` 
 > 
 2. base_orders
 > purpose: to obtain detailed order data  
-> tables: orders, order_items and customers
+> tables: `orders`, `order_items` and `customers`
 > 
 3. state_rev_rankings
 > purpose: to rank states on sum of order prices  
-> tables: sellers joined to view base_orders
+> tables: `sellers` joined to view `base_orders`
 > 
 4. state_rank_by_category
 > purpose: to rank states by review scores for each category  
-> tables: reviews, order_items, sellers and products
+> tables: `reviews`, `order_items`, `sellers` and `products`
 > 
 5. rolling_rev_by_state
 > purpose: to calculate monthly running revenue by state  
-> tables: customers joined to view base_orders
+> tables: `customers` joined to view `base_orders`
 > 
