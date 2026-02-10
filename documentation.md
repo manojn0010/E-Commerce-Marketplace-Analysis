@@ -109,8 +109,8 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > use case: KPI 6, month-on-month growth calculated directly while answering KPI  
 
 ---
-### Data Assumptions and Business Rules
-- Only orders with status = 'delivered' are included in GMV calculations. Cancelled and unavailable orders are excluded.
+### Data Assumptions and Limitations
+- Only orders with status = 'delivered' are included for analysis. Cancelled and unavailable orders are excluded.
 - GMV includes both product price and freight value.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
