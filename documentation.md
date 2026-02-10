@@ -60,10 +60,11 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 ### Procedures, Functions, and Views
 1. run_orders_by_date    
-> update table orders_by_date    
-> input: from_date(yyyy-mm-dd), to_date(yyyy-mm-dd)    
+`> update table orders_by_date`    
+`> input: from_date(yyyy-mm-dd), to_date(yyyy-mm-dd)  `  
 > truncates the table and updates orders between from_date and to_date    
 2. 
+
 
 
 
