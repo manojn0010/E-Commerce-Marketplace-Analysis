@@ -4,7 +4,7 @@ Project: E-COM Analytics
 ### Overview  
 This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.
 
----  
+---
 ### Key Performance Indicators (KPIs)
 1. Gross Merchandise Value (GMV)  
 > Sum of the value of the products moved through the platform.
@@ -18,8 +18,8 @@ This document provides detailed technical documentation for the *E-COM Analytics
 > How much each state contributes towards GMV 
 6. State-wise Monthly Growth  
 > How sales vary across states on a rolling monthly basis
----
 
+---
 ### Errors Fixed During Load Phase
 
 **Incorrect Datatypes**
@@ -42,8 +42,8 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Errors included incorrect datatypes, orphan keys, and duplicate entries.
 - These issues occurred due to inconsistent CSV data files.
 - Only final, corrected queries are retained in the `scripts/` directory.
----
 
+---
 ### Data Cleaning Phase
 - Staging tables act as temporary structures before final tables are populated and are dropped afterward.
 - Product category names were standardized and mapped to English equivalents.
@@ -51,25 +51,31 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - City names were inconsistent; analysis was performed using `zip_prefix` and `state_code`.
 - Review text data was excluded due to language inconsistency.
 - Duplicate geolocation records were reduced to a single retained entry.
----
 
+---
 ### Procedures
 1. run_orders_by_date    
 > purpose: update orders_by_date based on dates  
 > input(s): start_date(yyyy-mm-dd), end_date(yyyy-mm-dd)     
-> truncates the table orders_by_date and updates orders from start_date to end_date     
+> output: truncates the table orders_by_date and updates orders from start_date to end_date     
 2. update_seller_metrics
 > purpose: update seller_metrics_by_state  
 > input(s): none. direct procedure that updates seller metrics  
-> aggregated results of seller_metrics by state  
+> output: truncates the table seller_metrics_by_state and updates aggregated results of seller metrics by state  
+
 ---
+### Functions
+1. zip_cnt_by_state  
+> purpose: get the area count within a state  
+> input: 2 character state_code  
+> output: returns the number of areas within the state, based on current customer data   
+2. order_cnt_by_state  
+> purpose: get the number of orders from a state  
+> input: 2 character state_code  
+> output: returns the number of orders from the state, based on current orders data  
+3. cost
+> purpose: to obtain total cost of an order  
+> input: order_id (varchar(50))  
+> output: returns the total cost of an order, i.e, sum of price and freight_value of each item
 
-### Functions, and Views
-
-
-
-
-
-
-
-
+### Views
