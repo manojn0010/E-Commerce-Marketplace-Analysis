@@ -56,11 +56,11 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 ### Procedures
 1. run_orders_by_date    
 > purpose: update orders_by_date based on dates  
-> input(s): start_date(yyyy-mm-dd), end_date(yyyy-mm-dd)     
+> input: start_date (yyyy-mm-dd), end_date (yyyy-mm-dd)     
 > output: truncates the table orders_by_date and updates orders from start_date to end_date     
 2. update_seller_metrics
 > purpose: update seller_metrics_by_state  
-> input(s): none. direct procedure that updates seller metrics  
+> input: none. direct procedure that updates seller metrics  
 > output: truncates the table seller_metrics_by_state and updates aggregated results of seller metrics by state  
 
 ---
@@ -75,7 +75,27 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > output: returns the number of orders from the state, based on current orders data  
 3. cost
 > purpose: to obtain total cost of an order  
-> input: order_id (varchar(50))  
+> input: alphanumeric order_id  
 > output: returns the total cost of an order, i.e, sum of price and freight_value of each item
 
-### Views
+### Views  
+1. order_costs  
+> purpose: to obtain basic order data  
+> tables: 'orders' and `customers` 
+> 
+2. base_orders
+> purpose: to obtain detailed order data  
+> tables: orders, order_items and customers
+> 
+3. state_rev_rankings
+> purpose: to rank states on sum of order prices  
+> tables: sellers joined to view base_orders
+> 
+4. state_rank_by_category
+> purpose: to rank states by review scores for each category  
+> tables: reviews, order_items, sellers and products
+> 
+5. rolling_rev_by_state
+> purpose: to calculate monthly running revenue by state  
+> tables: customers joined to view base_orders
+> 
