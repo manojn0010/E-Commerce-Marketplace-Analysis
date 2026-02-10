@@ -9,14 +9,14 @@ This document provides detailed technical documentation for the *E-COM Analytics
 1. Gross Merchandise Value (GMV)  
 > Sum of the value of the products moved through the platform.
 2. Order Count and Average Order Value (AOV)  
-> Total number of orders and mean order value
+> Total number of orders and mean order value per order
 3. High Value Seller Metrics  
 > Metrics of Sellers with more than 10 orders (High value threshold)
 4. Top 3 States for each Category  
 > Obtain the top states for each category based on customer ratings
 5. State-wise GMV Share  
 > How much each state contributes towards GMV 
-6. State-wise Monthly Growth  
+6. State-wise Month-over-Month Growth  
 > How sales vary across states on a rolling monthly basis
 
 ---
@@ -60,7 +60,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > output: truncates the table orders_by_date and updates orders from start_date to end_date     
 2. update_seller_metrics
 > purpose: update seller_metrics_by_state  
-> input: none. direct procedure that updates seller metrics  
+> input: none; directly updates seller metrics  
 > output: truncates the table seller_metrics_by_state and updates aggregated results of seller metrics by state  
 
 ---
@@ -105,3 +105,4 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > tables: `customers` joined to view `base_orders`  
 > constraints: provides only the month-over-month rolling revenue  
 > use case: KPI 6, month-on-month growth calculated directly while answering KPI  
+
