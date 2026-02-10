@@ -7,17 +7,17 @@ This document provides detailed technical documentation for the *E-COM Analytics
 
 ### Key Performance Indicators (KPIs)
 1. Gross Merchandise Value (GMV)  
- Sum of the value of the products moved through the platform.
-2. Order Count and Average Order Value (AOV)
- Total number of orders and mean order value
+> Sum of the value of the products moved through the platform.
+2. Order Count and Average Order Value (AOV)  
+> Total number of orders and mean order value
 3. High Value Seller Metrics  
- Metrics of Sellers with more than 10 orders (High value threshold)
+> Metrics of Sellers with more than 10 orders (High value threshold)
 4. Top 3 States for each Category  
- Obtain the top states for each category based on customer ratings
+> Obtain the top states for each category based on customer ratings
 5. State-wise GMV Share  
- How much each state contributes towards GMV 
-6. Statewise Monthly Growth
- How sales vary across all states each rolling month
+> How much each state contributes towards GMV 
+6. Statewise Monthly Growth  
+> How sales vary across all states each rolling month
 
 ### Errors Fixed During Load Phase
 
@@ -60,6 +60,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 ### Procedures, Functions, and Views
 - Additional tables such as `orders_by_date` and `seller_metrics_by_state` are updated based on a user-defined date range (`YYYY-MM-DD` format)
+
 
 
 
