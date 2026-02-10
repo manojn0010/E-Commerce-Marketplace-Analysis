@@ -78,6 +78,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > input: alphanumeric order_id  
 > output: returns the total cost of an order, i.e, sum of price and freight_value of each item
 
+===
 ### Views  
 1. order_costs  
 > purpose: to obtain basic order data  
@@ -99,3 +100,4 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > purpose: to calculate monthly running revenue by state  
 > tables: `customers` joined to view `base_orders`
 > 
+
