@@ -96,7 +96,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > purpose: to rank states on sum of order prices  
 > tables: `sellers` joined to view `base_orders`  
 > constraints: ranking based on seller states  
-> use case: KPI 5, percentages calculated is retained to 2 decimal places  
+> use case: KPI 5, percentages are retained to 2 decimal places  
 4. state_rank_by_category
 > purpose: to rank states by review scores for each category  
 > tables: `reviews`, `order_items`, `sellers` and `products`  
@@ -115,3 +115,4 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
+
