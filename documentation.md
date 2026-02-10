@@ -59,7 +59,12 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 ---
 
 ### Procedures, Functions, and Views
-- Additional tables such as `orders_by_date` and `seller_metrics_by_state` are updated based on a user-defined date range (`YYYY-MM-DD` format)
+1. run_orders_by_date
+> update table orders_by_date
+> input: from_date(yyyy-mm-dd), to_date(yyyy-mm-dd)
+> truncates the table and updates orders between from_date and to_date
+2. 
+
 
 
 
