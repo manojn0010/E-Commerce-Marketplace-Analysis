@@ -1,10 +1,10 @@
 # Project Documentation
 Project: E-COM Analytics
 
-### Overview
+### Overview  
 This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.
----
 
+---  
 ### Key Performance Indicators (KPIs)
 1. Gross Merchandise Value (GMV)  
 > Sum of the value of the products moved through the platform.
@@ -55,16 +55,17 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 ### Procedures
 1. run_orders_by_date    
-> purpose: update orders_by_date based on dates 
-> input(s): start_date(yyyy-mm-dd), end_date(yyyy-mm-dd)    
-> truncates the table orders_by_date and updates orders from start_date to end_date    
+> purpose: update orders_by_date based on dates  
+> input(s): start_date(yyyy-mm-dd), end_date(yyyy-mm-dd)     
+> truncates the table orders_by_date and updates orders from start_date to end_date     
 2. update_seller_metrics
-> purpose: update seller_metrics_by_state
-> input(s): none. direct procedure that updates seller metrics
-> aggregated results of seller_metrics by state
+> purpose: update seller_metrics_by_state  
+> input(s): none. direct procedure that updates seller metrics  
+> aggregated results of seller_metrics by state  
 ---
 
 ### Functions, and Views
+
 
 
 
