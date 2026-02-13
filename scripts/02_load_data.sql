@@ -14,7 +14,7 @@
  -- 9 cat_name_translation
 -- =========================
 -- 1 sellers' data
-load data local infile "data/raw/olist_sellers_dataset.csv"
+load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_sellers_dataset.csv"
 into table sellers
 fields terminated by ','
 optionally enclosed by '"'    
@@ -23,7 +23,7 @@ lines terminated by '\n'
 ignore 1 lines;                                                                 
 -- -------------------------
 -- 2 customers' data
-load data local infile "data/raw/olist_customers_dataset.csv"
+load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_customers_dataset.csv"
 into table customers
 fields terminated by ','
 optionally enclosed by '"'    
@@ -32,7 +32,7 @@ lines terminated by '\n'
 ignore 1 lines;                                                                            
 -- -------------------------
 -- 3 geolocation details
-load data local infile "data/raw/olist_geolocation_dataset.csv"
+load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_geolocation_dataset.csv"
 into table geolocation
 fields terminated by ','
 optionally enclosed by '"'   
@@ -41,7 +41,7 @@ lines terminated by '\n'
 ignore 1 lines;                        
 -- -------------------------
 -- 4 product details
-load data local infile 'data/raw/olist_products_dataset.csv'
+load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_products_dataset.csv'
 into table products
 fields terminated by ','
 optionally enclosed by '"'
@@ -70,12 +70,16 @@ create table orders_stage (
   est_delivery_ts varchar(30)
 );
 
-load data local infile 'data/raw/olist_orders_dataset.csv'
+load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_orders_dataset.csv'
 into table orders_stage
 fields terminated by ','
 optionally enclosed by '"'
 lines terminated by '\n'
 ignore 1 lines;
+
+delete from orders_stage 
+where o_status != "delivered";
+-- only delivered orders are considered for this project
 
 insert into orders
 select s.o_id,
@@ -101,7 +105,7 @@ create table order_items_stage (
   freight_value decimal(10,2)
 );
 
-load data local infile 'data/raw/olist_order_items_dataset.csv'
+load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_items_dataset.csv'
 into table order_items_stage
 fields terminated by ','
 optionally enclosed by '"'
@@ -130,7 +134,7 @@ create table payments_stage (
   payment_value decimal(10,2)
 );
 
-load data local infile 'data/raw/olist_order_payments_dataset.csv'
+load data infile 'c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_payments_dataset.csv'
 into table payments_stage
 fields terminated by ','
 optionally enclosed by '"'
@@ -159,7 +163,7 @@ create table reviews_stage (
   submitted_timestamp varchar(100)
 );
 
-load data local infile "data/raw/olist_order_reviews_dataset.csv"
+load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\olist_order_reviews_dataset.csv"
 into table reviews_stage
 fields terminated by ','
 optionally enclosed by '"'   
@@ -189,7 +193,7 @@ join orders o
 where s.rn = 1;
 -- -------------------------
 -- 9 category names in english
-load data local infile "data/raw/product_category_name_translation.csv"
+load data infile "c:\\programdata\\mysql\\mysql server 8.0\\uploads\\p1\\product_category_name_translation.csv"
 into table cat_name_translation
 fields terminated by ','
 optionally enclosed by '"'  

@@ -86,31 +86,31 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > purpose: to obtain basic order data    
 > tables: `orders` and `customers`  
 > constraints: provides only the unique customer id and cost of the order  
-> use case: KPI 2, handled nulls  
+> use case: KPI 2; handle null values    
 2. base_orders
 > purpose: to obtain detailed order data  
 > tables: `orders`, `order_items` and `customers`  
 > constraints: detailed order data, but includes null values    
-> use case: KPI 1 and KPI 3, handled nulls  
+> use case: KPI 1 and KPI 3; handle null values    
 3. state_ttl_price_rankings
 > purpose: to rank states on sum of order prices  
 > tables: `sellers` joined to view `base_orders`  
 > constraints: ranking based on seller states  
-> use case: KPI 5, percentages are retained to 2 decimal places  
+> use case: KPI 5; retain share percentage to 2 decimal places  
 4. state_rank_by_category
 > purpose: to rank states by review scores for each category  
 > tables: `reviews`, `order_items`, `sellers` and `products`  
-> constraints: based only sellers with more than 3 orders   
-> use case: KPI 4, filtered top 3 from each category  
+> constraints: based only sellers with more than 3 orders and known product categories   
+> use case: KPI 4; filter top 3 from each category  
 5. rolling_rev_by_state
 > purpose: to calculate monthly running revenue by state  
 > tables: `customers` joined to view `base_orders`  
 > constraints: provides only the month-over-month rolling revenue  
-> use case: KPI 6, month-on-month growth calculated directly while answering KPI  
+> use case: KPI 6; calculate month-on-month growth directly while answering KPI  
 
 ---
 ### Data Assumptions and Limitations
-- Only orders with status = 'delivered' are included for analysis. Orders with `o_status` as cancelled, unavailable, etc are excluded.
+- Only orders with status = 'delivered' are included for analysis. orders with `o_status` as cancelled, unavailable, approved, etc are excluded.
 - GMV includes both product price and freight value.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.

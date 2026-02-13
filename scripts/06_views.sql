@@ -50,6 +50,7 @@ from reviews r
 join order_items o on r.o_id = o.o_id 
 join sellers s on o.s_id = s.s_id 
 join products p on o.p_id = p.p_id
+where p_category != 'unknown'
 ),
 cte2 as (
 select p_category, s_state, count(*) as item_count, round(avg(review_score), 2) as avg_rating
