@@ -110,7 +110,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 ---
 ### Data Assumptions and Limitations
-- Only orders with status = 'delivered' are included for analysis. Orders with `o_status` as cancelled, unavailable, approved, etc are excluded.
+- Only orders with status = 'delivered' are included for analysis. orders with `o_status` as cancelled, unavailable, approved, etc are excluded.
 - GMV includes both product price and freight value.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
