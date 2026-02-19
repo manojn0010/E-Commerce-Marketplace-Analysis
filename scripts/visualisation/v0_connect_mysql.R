@@ -1,18 +1,16 @@
 # File: v0_connect_mysql.R
 # Project: E-COM Analytics  
+# Purpose: Create DBI Connection Object
 
-# Install the Necessary Packages 
-install.packages(c("DBI", "RMySQL"))            # for database handling  
-install.packages(c("dplyr", "ggplot2", "zoo"))  # for cleaning, plotting and time-series plots  
-install.packages("shiny")                       # for interactive plots  
-
+# Load necessary libraries
 library(DBI)
 library(RMySQL)
 
+# Create object that connect to MySQL
 con <- dbConnect(
   RMySQL::MySQL(),
   dbname   = "e-com",
-  host     = "localhost",
-  user     = "@username",
-  password = "@password"
+  host     = Sys.getenv("MYSQL_HOST", "localhost"),
+  user     = Sys.getenv("MYSQL_USER"),
+  password = Sys.getenv("MYSQL_PASSWORD")
 )
