@@ -1,4 +1,4 @@
-# File: v0_connect_mysql.R
+# File: v1_connect_mysql.R
 # Project: E-COM Analytics  
 # Purpose: Create DBI Connection Object
 
@@ -14,3 +14,4 @@ con <- dbConnect(
   user     = Sys.getenv("MYSQL_USER"),
   password = Sys.getenv("MYSQL_PASSWORD")
 )
+
