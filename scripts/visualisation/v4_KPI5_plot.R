@@ -1,8 +1,16 @@
+# File: v4_KPI5_plot.R
+# Project: E-COM Analytics  
+# Purpose: Plot KPI 5
+
+# Load necessary libraries
 library(ggplot2)
 library(zoo)
+
+# Load KPI5 Data
 top5_state_gmv <- state_gmv_share %>%
   slice(1:5)
 
+# Plotting
 ggplot(
   top5_state_gmv,
   aes(
