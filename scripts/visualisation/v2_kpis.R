@@ -5,6 +5,7 @@
 # Load necessary libraries
 library(dplyr)
 
+# Key Performance Indicators
 # 1. Gross Merchandise Value
 gmv <- dbGetQuery(con, "
                   select 
@@ -70,3 +71,4 @@ state_growth_by_mnt <- dbGetQuery(con, "
                                   from rolling_rev_by_state
                                   ")
 # Later made into an interactive plot using shiny.
+
