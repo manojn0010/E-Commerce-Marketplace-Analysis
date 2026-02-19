@@ -1,14 +1,16 @@
-install.packages(c("DBI", "RMySQL", "dplyr", "ggplot2", "zoo"))
-install.packages("shiny")
+# File: v5_KPI6_plot.R
+# Project: E-COM Analytics  
+# Purpose: Plot KPI 6 using Shiny App
+
+# Load necessary libraries
 library(shiny)
-library(DBI)
-library(RMySQL)
 library(dplyr)
 library(ggplot2)
 library(zoo)
 
+# Data Load 
 state_growth <- state_growth_by_mnt
-
+# Data Tidy
 state_growth <- state_growth %>%
   mutate(
     mnt = as.Date(as.yearmon(mnt))
@@ -22,6 +24,7 @@ top5_states <- state_growth %>%
   slice(1:5) %>%
   pull(state)
 
+# UI side
 ui <- fluidPage(
   
   titlePanel("KPI 6: Month-over-Month Revenue Growth"),
@@ -43,6 +46,7 @@ ui <- fluidPage(
   )
 )
 
+# Server side
 server <- function(input, output) {
   
   filtered_data <- reactive({
@@ -82,4 +86,5 @@ server <- function(input, output) {
   })
 }
 
+# Run/Open App
 shinyApp(ui = ui, server = server)

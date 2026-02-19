@@ -109,9 +109,18 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > use case: KPI 6; calculate month-on-month growth directly while answering KPI  
 
 ---
+### Visualisation
+- This project is visualised using R. Users must create a file named `.Renviron` for safety reasons.
+- The file `/.Renviron.example` contains the instructions and the template for `.Renviron`.
+- Start running R scripts only after following these instructions. The `scripts/visualisation/` scripts fail otherwise.
+- KPIs 1, 2 and 3 are only calculated. KPIs 4, 5 and 6 are plotted using ggplot and Shiny app.
+- The Project Report can be found in `/outputs` as a Quarto document(`report.qmd`).
+
+---
 ### Data Assumptions and Limitations
 - Only orders with status = 'delivered' are included for analysis. orders with `o_status` as cancelled, unavailable, approved, etc are excluded.
 - GMV includes both product price and freight value.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
+
