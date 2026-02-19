@@ -1,0 +1,16 @@
+# ------------------------------------------------------------------
+# Environment variable template for E-COM Analytics
+
+# INSTRUCTIONS:
+# 1. Copy this file to `.Renviron` in the project root.
+# 2. Replace the placeholder values with your own credentials.
+# 3. Restart R / RStudio before running any scripts.
+
+# NOTE:
+# - This file is a template and is safe to commit.
+# - The actual `.Renviron` file is ignored by Git.
+# ------------------------------------------------------------------
+
+MYSQL_HOST=localhost
+MYSQL_USER=your_mysql_username
+MYSQL_PASSWORD=your_mysql_password
