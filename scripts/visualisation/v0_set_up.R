@@ -1,8 +1,8 @@
-# File:    setup_packages.R
+# File: v0_set_up.R
 # Project: E-COM Analytics
 # Purpose: Install required R packages if they are not already installed  
 
-# Run this script once before executing any other project scripts.
+# Run this script once before executing any other project visualisation scripts.
 
 required_packages <- c(
   "DBI",
