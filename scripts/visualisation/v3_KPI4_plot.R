@@ -1,12 +1,19 @@
+# File: v3_KPI4_plot.R
+# Project: E-COM Analytics  
+# Purpose: Plot KPI 4 using Shiny App 
+
+# Load necessary libraries
 library(shiny)
 library(DBI)
 library(RMySQL)
 library(dplyr)
 library(ggplot2)
 
+# laod KPI4 data
 kpi4_data <- top_states_by_category
-str(kpi4_data)
+str(kpi4_data) # sanity check the structure
 
+# build UI side
 ui1 <- fluidPage(
   
   titlePanel("KPI 4: Top States by Product Category Rating"),
@@ -27,6 +34,7 @@ ui1 <- fluidPage(
   )
 )
 
+# build Server side
 server1 <- function(input, output) {
   
   filtered_data <- reactive({
@@ -66,3 +74,4 @@ server1 <- function(input, output) {
 }
 
 shinyApp(ui = ui1, server = server1)
+
