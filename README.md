@@ -15,8 +15,10 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 2. Download the dataset from the source listed below.
 3. Extract the CSV files into the `data/` directory.
 4. From `scripts/`, run each script manually in order  
-   **or** execute the full pipeline using: `scripts/run_all/00_run_all.sql`.
-5. Generate visualizations using the R scripts in `viz_files/`.
+   **or** execute the full SQL-side pipeline using: `scripts/run_all/00_run_all.sql`.
+5. Create an R project with the same directory.
+6. Generate visualizations using the R scripts in `scripts/visualisation/`.
+7. Running `v0_set_up.R` file first is important for the execution of all the R files after.
 
 ## Data Source
 This project uses the Brazilian E-Commerce Public Dataset by Olist.
@@ -36,6 +38,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Any additional details, issues faced or project decisions are documented in `/documentation.md`.
 - This repository assumes basic knowledge like installation, launch and setup of MySQL and R.
 - The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.
+- Findings/Outputs can be found in `outputs`. 
  
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
