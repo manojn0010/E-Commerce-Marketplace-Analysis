@@ -14,11 +14,12 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 1. Clone the repository.
 2. Download the dataset from the source listed below.
 3. Extract the CSV files into the `data/` directory.
-4. From `scripts/`, run each script manually in order  
-   **or** execute the full SQL-side pipeline using: `scripts/run_all/00_run_all.sql`.
-5. Create an R project with the same directory.
-6. Generate visualizations using the R scripts in `scripts/visualisation/`.
-7. Running `v0_set_up.R` file first is important for the execution of all the R files after.
+4. From `scripts/`, run each script manually in order, if working on Workbench    
+   **or** execute the full SQL-end pipeline using: `SOURCE scripts/run_all/00_run_all.sql;`  
+   *Multiple script execution is not possible on workbench. Use Command Prompt within the project directory folder.*
+6. Create an R project with the same directory.
+7. Generate visualizations using the R scripts in `scripts/visualisation/`.
+8. Running `v0_set_up.R` file first is important for the execution of all the R files after.
 
 ## Data Source
 This project uses the Brazilian E-Commerce Public Dataset by Olist.
