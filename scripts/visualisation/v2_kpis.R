@@ -72,3 +72,5 @@ state_growth_by_mnt <- dbGetQuery(con, "
                                   ")
 # Later made into an interactive plot using shiny.
 
+# Terminate DB Connection after creating KPI Objects. 
+dbDisconnect(con)
