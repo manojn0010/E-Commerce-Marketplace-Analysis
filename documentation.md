@@ -4,7 +4,9 @@ Scope: This document is intended for technical reviewers and focuses on data pro
 
 ---
 ### Overview  
-This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.
+This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.  
+
+The `report.md` file highlights the structure and results of this EDA project. It further explores other areas that can be analysed for marketplace insights. 
 
 ---
 ### Key Performance Indicators (KPIs)
@@ -114,7 +116,6 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - The file `/.Renviron.example` contains the instructions and the template for `.Renviron`.
 - Start running R scripts only after following these instructions. The `scripts/visualisation/` scripts fail otherwise.
 - KPIs 1, 2 and 3 are only calculated. KPIs 4, 5 and 6 are plotted using ggplot and Shiny app.
-- The Project Report can be found in `/outputs` as a Quarto document(`report.qmd`).
 
 ---
 ### Data Assumptions and Limitations
@@ -123,4 +124,5 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
+
 
