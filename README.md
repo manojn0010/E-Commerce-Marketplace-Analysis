@@ -18,20 +18,18 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
    **or** execute the full SQL-end pipeline using: `SOURCE scripts/run_all/00_run_all.sql;`  
    *Multiple script execution is not possible on workbench. Use Command Prompt within the project directory folder.*
 6. Create an R project with the same directory.
-7. Generate visualizations using the R scripts in `scripts/visualisation/`.
+7. Generate visualisations using the R scripts in `scripts/visualisation/`.
 8. Running `v0_set_up.R` file first is important for the execution of all the R files after.
 
 ## Data Source
-This project uses the Brazilian E-Commerce Public Dataset by Olist.
-
-Due to file size limitations, the raw dataset is not included in this repository.
+This project uses the Brazilian E-Commerce Public Dataset by Olist.  
+Due to file size limitations, the raw dataset is not included in this repository. 
 
 You can download the dataset from:
 https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
 After downloading, extract the CSV files into:
-`data/`.
-
+`data/`.  
 The SQL scripts in `scripts/` assume this folder structure.
 
 ## Project Notes
