@@ -4,8 +4,6 @@
 
 # Load necessary libraries
 library(shiny)
-library(DBI)
-library(RMySQL)
 library(dplyr)
 library(ggplot2)
 
@@ -74,4 +72,5 @@ server1 <- function(input, output) {
 }
 
 shinyApp(ui = ui1, server = server1)
+
 
