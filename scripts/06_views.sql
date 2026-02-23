@@ -5,7 +5,7 @@
 -- Create Views
  -- 1 order_costs
  -- 2 base_orders
- -- 3 state_rev_rankings
+ -- 3 category_rank_by_rev
  -- 4 state_rank_by_category
  -- 5 rolling_rev_by_state
 -- =========================
@@ -21,7 +21,7 @@ join customers c on o.c_id = c.c_id;
 create view base_orders as
 select 
 o.o_id as o_id, 
-oi.item_number as item, 
+oi.p_id as p_id, 
 date(o.purchase_timestamp) as day_of_purchase, 
 c.c_unique_id as c_id, 
 oi.s_id as s_id, 
@@ -31,18 +31,17 @@ left join order_items oi on o.o_id = oi.o_id
 join customers c on o.c_id = c.c_id;
 -- detailed order data
 -- -------------------------
--- 3 ranking view using base view
-create view state_ttl_price_rankings as
-select s.s_state as state, 
-sum(o.cost) as ttl_price, 
-rank() over (order by sum(o.cost) desc) as rnk 
+-- 3 aggregating table using base view
+create view category_rank_by_rev as
+select p.p_category as category, 
+sum(o.cost) as rev
 from base_orders o
-join sellers s 
-on o.s_id = s.s_id 
-group by s.s_state;
--- rank states on total order prices
+join products p 
+on p.p_id = o.p_id 
+group by p.p_category;
+-- get total revenue for each category
 -- -------------------------
--- 4 view using ctes
+-- 4 ranking view using ctes
 create view state_rank_by_category as                    
 with cte1 as (
 select o.o_id, p.p_category, s.s_state, r.review_score
