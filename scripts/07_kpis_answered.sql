@@ -32,7 +32,6 @@ from
 (select state, sum(rev) as state_rev 
 from rolling_rev_by_state
 group by state) b
-group by state
 order by state_rev desc
 limit 10;
 -- -------------------------
