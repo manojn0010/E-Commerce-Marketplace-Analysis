@@ -4,7 +4,7 @@ A data analytics portfolio project built on the Brazilian Olist e-commerce datas
 ## Description
 This project analyzes the Brazilian Olist e-commerce dataset, representing a real-world multi-seller marketplace. It enables exploration of product categories, customer reviews, and geographic performance across Brazilian states.
 
-Using SQL for data extraction and KPI computation, the analysis focuses on key marketplace metrics such as Gross Merchandise Value (GMV), Average Order Value (AOV), and regional performance indicators. These analytical results are integrated into an interactive dashboard that allows users to dynamically filter product categories and examine top-performing states based on customer ratings and items sold.
+Using SQL for data extraction and KPI computation, the analysis focuses on key marketplace metrics such as Gross Merchandise Value (GMV), Average Order Value (AOV), and regional performance indicators. These analytical results are integrated into an interactive dashboard that allows users to dynamically filter product categories and examine top-performing states based on customer ratings and revenue contribution.
 
 ### Tools used
 **SQL:** MySQL  
@@ -42,10 +42,10 @@ The SQL scripts in `scripts/` assume this folder structure.
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
 2. How GMV compares to Average Order Value and Total Order Count?
-3. Combined Metrics of Sellers with more than 10 orders
+3. Top 10 Statewise Revenue Share
 4. Which are the top 3 states for each Product Category?
 5. How much each State contributes towards total GMV?
-6. Monthly Revenue Growth for each State
+6. Monthly Revenue Trend
 
 ## References
 - Dataset obtained from **Kaggle**.
