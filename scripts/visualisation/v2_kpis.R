@@ -23,28 +23,20 @@ gmv_vs_aov <- dbGetQuery(con, "
                          round(sum(order_cost), 2) as gmv,
                          round(sum(order_cost)/count(*), 2) as aov
                          from order_costs
-                         where order_cost is not null")
+                         where order_cost is not null
+                         ")
 
-# 3. High-Value Seller Metrics
-high_value_sellers <- dbGetQuery(con, "
-                                 with temp as(
-                                 select
-                                 s_id,
-                                 sum(cost) as individual_value
-                                 from base_orders
-                                 where cost is not null
-                                 group by s_id
-                                 having count(s_id) > 10)
-                                 select *
-                                 from temp
-                                 ")
-
-high_value_summary <- high_value_sellers %>%
-  summarise(
-    high_value_seller_cnt = n(),
-    high_seller_gmv = round(sum(individual_value), 2),
-    high_value_sellers_avg_gmv = round(mean(individual_value), 2)
-  )
+# 3. TOP 10 States by Revenue Share
+top_10_states <- dbGetQuery(con, "
+                            select *, 
+                            round(100*state_rev/(sum(state_rev) over ()), 2)as gmv_percent_share 
+                            from
+                            (select state, sum(rev) as state_rev 
+                            from rolling_rev_by_state
+                            group by state) b
+                            order by state_rev desc
+                            limit 10
+                            ")
 
 # 4. Top 3 States for each Category
 top_states_by_category <- dbGetQuery(con, "
@@ -57,20 +49,22 @@ top_states_by_category <- top_states_by_category %>% mutate(p_category=trimws(p_
 # Later made into an interactive plot using shiny.
 
 # 5. State-wise GMV Share
-state_gmv_share <- dbGetQuery(con, "
-                              select 
-                              state, 
-                              round(100*ttl_price/sum(ttl_price) over(), 2) as gmv_percent_share
-                              from state_ttl_price_rankings
-                              ")
+category_rev_ranks <- dbGetQuery(con, "
+                                 select *, 
+                                 rank () over (order by rev desc)
+                                 from category_rank_by_rev
+                                 where category != 'UNKNOWN'
+                                 ")
 
 # 6. Each State Month-on-Month Growth
-state_growth_by_mnt <- dbGetQuery(con, "
-                                  select *,
-                                  rev-lag(rev) over(partition by state order by mnt) as growth_from_prev_mnt
-                                  from rolling_rev_by_state
-                                  ")
-# Later made into an interactive plot using shiny.
+monthly_trend <- dbGetQuery(con, "
+                            select date_format(day_of_purchase, '%y-%m') as mnt, 
+                            sum(cost) as rev
+                            from base_orders
+                            group by mnt
+                            order by mnt
+                            ")
+# Used in Time-Series Plot
 
 # Terminate DB Connection after creating KPI Objects. 
 dbDisconnect(con)
