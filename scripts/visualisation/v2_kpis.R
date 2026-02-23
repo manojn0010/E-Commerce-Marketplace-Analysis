@@ -48,7 +48,7 @@ top_states_by_category <- dbGetQuery(con, "
 top_states_by_category <- top_states_by_category %>% mutate(p_category=trimws(p_category))
 # Later made into an interactive plot using shiny.
 
-# 5. State-wise GMV Share
+# 5. Rank Product Categories based on Revenue
 category_rev_ranks <- dbGetQuery(con, "
                                  select *, 
                                  rank () over (order by rev desc)
@@ -56,7 +56,7 @@ category_rev_ranks <- dbGetQuery(con, "
                                  where category != 'UNKNOWN'
                                  ")
 
-# 6. Each State Month-on-Month Growth
+# 6. Platform Revenue Trend
 monthly_trend <- dbGetQuery(con, "
                             select date_format(day_of_purchase, '%y-%m') as mnt, 
                             sum(cost) as rev
