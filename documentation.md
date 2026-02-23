@@ -11,17 +11,17 @@ The `report.md` file highlights the structure and results of this EDA project. I
 ---
 ### Key Performance Indicators (KPIs)
 1. Gross Merchandise Value (GMV)  
-> Sum of the value of the products moved through the platform.
-2. Order Count and Average Order Value (AOV)  
-> Total number of orders and mean order value per order
-3. High Value Seller Metrics  
-> Metrics of Sellers with more than 10 orders (High value threshold)
+> Sum of the value of the products moved through the platform
+2. Order Count and Average Order Value (AOV)
+> Total number of distinct orders and mean order value per order
+3. Top 10 Statewise Revenue Share 
+> 10 States that contribute the most towards GMV
 4. Top 3 States for each Category  
 > Obtain the top states for each category based on customer ratings
 5. State-wise GMV Share  
 > How much each state contributes towards GMV 
-6. State-wise Month-over-Month Growth  
-> How sales vary across states on a rolling monthly basis
+6. Monthly Revenue Trend
+> Platform-level monthly revenue trend over time
 
 ---
 ### Errors Fixed During Load Phase
@@ -94,11 +94,11 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > tables: `orders`, `order_items` and `customers`  
 > constraints: detailed order data, but includes null values    
 > use case: KPI 1 and KPI 3; handle null values    
-3. state_ttl_price_rankings
-> purpose: to rank states on sum of order prices  
-> tables: `sellers` joined to view `base_orders`  
-> constraints: ranking based on seller states  
-> use case: KPI 5; retain share percentage to 2 decimal places  
+3. category_rank_by_rev
+> purpose: aggregate total revenue by product category  
+> tables: view `base_orders` joined with `products`  
+> constraints: revenue includes product price and freight value and unknown categories
+> use case: KPI 5; ranking categories by revenue
 4. state_rank_by_category
 > purpose: to rank states by review scores for each category  
 > tables: `reviews`, `order_items`, `sellers` and `products`  
@@ -115,7 +115,9 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - This project is visualised using R. Users must create a file named `.Renviron` for safety reasons.
 - The file `/.Renviron.example` contains the instructions and the template for `.Renviron`.
 - Start running R scripts only after following these instructions. The `scripts/visualisation/` scripts fail otherwise.
-- KPIs 1, 2 and 3 are only calculated. KPIs 4, 5 and 6 are plotted using ggplot and Shiny app.
+- KPIs 1 and 2 are only calculated numerically.
+- KPIs 3 and 5 are retained as tables.
+- KPI 4 is made into an interactive shiny app visual, while KPI 6 is plotted using zoo package for time-series.
 
 ---
 ### Data Assumptions and Limitations
@@ -124,5 +126,3 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
-
-
