@@ -18,8 +18,8 @@ The `report.md` file highlights the structure and results of this EDA project. I
 > 10 States that contribute the most towards GMV
 4. Top 3 States for each Category  
 > Obtain the top states for each category based on customer ratings
-5. State-wise GMV Share  
-> How much each state contributes towards GMV 
+5. Category ranking by GMV Share  
+> How each category contributes towards GMV 
 6. Monthly Revenue Trend
 > Platform-level monthly revenue trend over time
 
@@ -93,7 +93,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > purpose: to obtain detailed order data  
 > tables: `orders`, `order_items` and `customers`  
 > constraints: detailed order data, but includes null values    
-> use case: KPI 1 and KPI 3; handle null values    
+> use case: KPI 1 and KPI 6; handle null values    
 3. category_rank_by_rev
 > purpose: aggregate total revenue by product category  
 > tables: view `base_orders` joined with `products`  
@@ -105,10 +105,10 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > constraints: based only sellers with more than 3 orders and known product categories   
 > use case: KPI 4; filter top 3 from each category  
 5. rolling_rev_by_state
-> purpose: to calculate monthly running revenue by state  
+> purpose: to calculate platform monthly revenue trends  
 > tables: `customers` joined to view `base_orders`  
-> constraints: provides only the month-over-month rolling revenue  
-> use case: KPI 6; calculate month-on-month growth directly while answering KPI  
+> constraints: view shows running revenue, KPI computes state total revenue
+> use case: KPI 3; aggregate revenue by state while answering KPI  
 
 ---
 ### Visualisation
@@ -126,3 +126,4 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
+

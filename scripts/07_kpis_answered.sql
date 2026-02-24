@@ -27,7 +27,7 @@ from order_costs
 where order_cost is not null;
 -- -------------------------
 -- 3 top 10 states by revenue
-select *, round(100*state_rev/(sum(state_rev) over ()), 2)as gmv_percent_share 
+select *, round(100*state_rev/(sum(state_rev) over ()), 2) as gmv_percent_share 
 from
 (select state, sum(rev) as state_rev 
 from rolling_rev_by_state
@@ -41,7 +41,7 @@ from state_rank_by_category
 where rnk <= 3;
 -- -------------------------
 -- 5 category_rev_ranks
-select *, rank () over (order by rev desc)
+select *, rank () over (order by rev desc) as rnk
 from category_rank_by_rev
 where category != 'UNKNOWN';
 -- -------------------------

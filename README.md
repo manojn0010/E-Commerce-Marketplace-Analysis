@@ -37,15 +37,15 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Any additional details, issues faced or project decisions are documented in `/documentation.md`.
 - This repository assumes basic knowledge like installation, launch and setup of MySQL and R.
 - The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.
-- Findings/Outputs can be found in `outputs`. 
+- Expected outputs can be found in `outputs`. 
  
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
 2. How GMV compares to Average Order Value and Total Order Count?
 3. Top 10 Statewise Revenue Share
 4. Which are the top 3 states for each Product Category?
-5. How much each State contributes towards total GMV?
-6. Monthly Revenue Trend
+5. Rank categories based on revenue generated
+6. Platform Monthly Revenue Trend
 
 ## References
 - Dataset obtained from **Kaggle**.
