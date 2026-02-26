@@ -76,22 +76,22 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 ---
 ## Key Business Metrics Explored
 
-### Revenue & Orders
-- Gross Merchandise Value (GMV)  
-- Total Order Count  
-- Average Order Value (AOV)  
+- Revenue & Orders
+ - Gross Merchandise Value (GMV)  
+ - Total Order Count  
+ - Average Order Value (AOV)  
 
-### Time-Based Metrics
-- Statewise monthly rolling revenue  
-- Platform monthly revenue trend
+- Time-Based Metrics
+ - Statewise monthly rolling revenue  
+ - Platform monthly revenue trend
 
-### Geographic Metrics
-- Revenue contribution by state  
-- Top states by product category  
+- Geographic Metrics
+ - Revenue contribution by state  
+ - Top states by product category  
 
-### Product & Seller Metrics
-- Top-selling product categories  
-- Statewise seller performance
+- Product & Seller Metrics
+ - Top-selling product categories  
+ - Statewise seller performance
 
 ---
 ## KPI Outcomes
@@ -100,18 +100,18 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 - **AOV**: BRL 159.83
 
 - **Top 10 State Revenue Share**:  
-|**state** | **state_rev**	| **gmv_percent_share** |
-|:---:|:---:|:---:|
-|SP| 6211822.27| 37.60|
-|RJ| 2216415.56| 13.42|
-|MG| 1941198.47| 11.75|
-|RS| 936899.98| 5.67|
-|PR| 830797.95|	5.03|
-|SC| 642758.97| 3.89|
-|BA| 629890.29|	3.81|
-|DF| 362852.82| 2.20|
-|GO| 354419.26|	2.15|
-|ES| 342325.85|	2.07|
+| **state** | **state_rev**	| **gmv_percent_share** |
+| :---: | :---: | :---: |
+| SP | 6211822.27 | 37.60 |
+| RJ | 2216415.56 | 13.42 |
+| MG | 1941198.47 | 11.75 |
+| RS | 936899.98 | 5.67 |
+| PR | 830797.95 | 5.03 |
+| SC | 642758.97 | 3.89 |
+| BA | 629890.29 | 3.81 |
+| DF | 362852.82 | 2.20 |
+| GO | 354419.26 | 2.15 |
+| ES | 342325.85 | 2.07 |
 
 - **Top 3 States for each Category**: ![KPI4] (/outputs/r_visuals/KPI4_shiny_app.png)
 
