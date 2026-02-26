@@ -2,6 +2,7 @@
 
 ## Abstract
 This project presents an end-to-end analytical study of a multi-seller e-commerce marketplace using the Brazilian Olist E-Commerce Public Dataset. The analysis integrates **SQL**-based data extraction and transformation with **R**-based visualization to evaluate marketplace performance across key dimensions, including revenue, order volume, geographic distribution, customer satisfaction, and product categories. A modular ETL pipeline is implemented to compute business-oriented KPIs such as **Gross Merchandise Value (GMV)**, **Average Order Value (AOV)**, and **Monthly Revenue Trends**. The results highlight regional revenue concentration, category-level performance, and temporal variations in marketplace activity. This project demonstrates practical *data analytics* skills, emphasizing structured data engineering, EDA-driven KPI framing, and clear communication of business insights.   
+
 This report is meant to highlight the data structure, project outcome and identifying other marketplace areas for further analysis.
 
 ---
@@ -119,13 +120,12 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 5. **Category Ranks for Revenue Generated**:  
 
 | **category** | **rev** | **rnk** |
-|:---:|:---:|:---:|
+| :--- | :---: | :---: |
 |health_beauty|	1412089.53 |1|
 |watches_gifts| 1264333.12 |2|
 |bed_bath_table| 1225209.26	|3|
 |sports_leisure| 1118256.91	|4|
 |computers_accessories| 1032723.77 |5|
-| : | : | : |
 | : | : | : |
 | : | : | : |
 | : | : | : |
