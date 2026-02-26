@@ -37,7 +37,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Any additional details, issues faced or project decisions are documented in `/documentation.md`.
 - This repository assumes basic knowledge like installation, launch and setup of MySQL and R.
 - The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.
-- Expected outputs can be found in `outputs`. 
+- Expected outputs can be found in `/outputs`. 
  
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
