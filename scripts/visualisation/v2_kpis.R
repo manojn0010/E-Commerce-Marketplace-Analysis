@@ -26,7 +26,7 @@ gmv_vs_aov <- dbGetQuery(con, "
                          where order_cost is not null
                          ")
 
-# 3. TOP 10 States by Revenue Share
+# 3. Top 10 States by Revenue Share
 top_10_states <- dbGetQuery(con, "
                             select *, 
                             round(100*state_rev/(sum(state_rev) over ()), 2)as gmv_percent_share 
@@ -68,3 +68,4 @@ monthly_trend <- dbGetQuery(con, "
 
 # Terminate DB Connection after creating KPI Objects. 
 dbDisconnect(con)
+
