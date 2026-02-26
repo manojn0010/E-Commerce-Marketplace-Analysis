@@ -115,7 +115,7 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 | GO | 354419.26 | 2.15 |
 | ES | 342325.85 | 2.07 |
 
-4. **Top 3 States for each Category**: ![KPI4] (/outputs/r_visuals/KPI4_shiny_app.png)
+4. **Top 3 States for each Category**: ![KPI4] (outputs/r_visuals/KPI4_shiny_app.png)
 
 5. **Category Ranks for Revenue Generated**:  
 
@@ -131,7 +131,7 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 | : | : | : |
 |security_and_services| 324.51 |72|
 
-6. **Monthly Revenue Trend**: ![KPI6] (/outputs/r_visuals/KPI6_plot.png)
+6. **Monthly Revenue Trend**: ![KPI6] (outputs/r_visuals/KPI6_plot.png)
    
 ---
 ## Analysis Highlights
