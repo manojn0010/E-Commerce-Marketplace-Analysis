@@ -96,7 +96,7 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 
 ---
 ## KPI Outcomes
-1. **GMV**: BRL 15,419,626.88, *Dated-Between: 2016-09-15 to 2018-08-29*    
+1. **GMV**: BRL 15,419,626.88;  *Dated-Between: 2016-09-15 to 2018-08-29*    
 
 2. **Order Count**: 96,477   
    **AOV**: BRL 159.83   
