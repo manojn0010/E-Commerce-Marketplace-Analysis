@@ -77,29 +77,30 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 ## Key Business Metrics Explored
 
 - Revenue & Orders
- - Gross Merchandise Value (GMV)  
- - Total Order Count  
- - Average Order Value (AOV)  
+  - Gross Merchandise Value (GMV)  
+  - Total Order Count  
+  - Average Order Value (AOV)  
 
 - Time-Based Metrics
- - Statewise monthly rolling revenue  
- - Platform monthly revenue trend
+  - Statewise monthly rolling revenue  
+  - Platform monthly revenue trend
 
 - Geographic Metrics
- - Revenue contribution by state  
- - Top states by product category  
+  - Revenue contribution by state  
+  - Top states by product category  
 
 - Product & Seller Metrics
- - Top-selling product categories  
- - Statewise seller performance
+  - Top-selling product categories  
+  - Statewise seller performance
 
 ---
 ## KPI Outcomes
-- **GMV**: BRL 15,419,626.88  
-- **Order Count**: 96477  
-- **AOV**: BRL 159.83
+1. **GMV**: BRL 15,419,626.88  
+2. **Order Count**: 96477   
+   **AOV**: BRL 159.83
 
-- **Top 10 State Revenue Share**:  
+3. **Top 10 State Revenue Share**:  
+
 | **state** | **state_rev**	| **gmv_percent_share** |
 | :---: | :---: | :---: |
 | SP | 6211822.27 | 37.60 |
@@ -113,9 +114,10 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 | GO | 354419.26 | 2.15 |
 | ES | 342325.85 | 2.07 |
 
-- **Top 3 States for each Category**: ![KPI4] (/outputs/r_visuals/KPI4_shiny_app.png)
+4. **Top 3 States for each Category**: ![KPI4] (/outputs/r_visuals/KPI4_shiny_app.png)
 
-- **Category Ranks for Revenue Generated**:  
+5. **Category Ranks for Revenue Generated**:  
+
 | **category** | **rev** | **rnk** |
 |:---:|:---:|:---:|
 |health_beauty|	1412089.53 |1|
@@ -129,8 +131,8 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 | : | : | : |
 |security_and_services| 324.51 |72|
 
-- **Monthly Revenue Trend**: ![KPI6] (/outputs/r_visuals/KPI6_plot.png)
-
+6. **Monthly Revenue Trend**: ![KPI6] (/outputs/r_visuals/KPI6_plot.png)
+   
 ---
 ## Analysis Highlights
 - Identified **high-revenue states** contributing disproportionately to total GMV  
