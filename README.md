@@ -11,13 +11,17 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 **Visualization:** R
 
 ## How to Run
-1. Clone the repository.
+1. Clone the repository. Extract project folder to preferred location.
 2. Download the dataset from the source listed below.
 3. Extract the CSV files into the `data/` directory.
-4. From `scripts/`, run each script manually in order, if working on Workbench    
-   **or** execute the full SQL-end pipeline using: `SOURCE scripts/run_all/00_run_all.sql;`  
+4. >Open Command Prompt, change directory to the project folder
+   *cd "path/project_folder"*
+   >Initiaite sql connection with local infile = ON
+   *mysql --local-infile=1 -u root -p*
+   >Enter your MySQL Password. Press Enter.
+5. Execute the full SQL-end pipeline by running: `SOURCE scripts/run_all/00_run_all.sql;`  
    *Multiple script execution is not possible on workbench. Use Command Prompt within the project directory folder.*
-6. Create an R project with the same directory.
+6. Create an R project with the same project directory.
 7. Generate visualisations using the R scripts in `scripts/visualisation/`.
 8. Running `v0_set_up.R` file first is important for the execution of all the R files after.
 
