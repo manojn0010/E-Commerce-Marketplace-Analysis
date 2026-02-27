@@ -17,10 +17,10 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 3. Extract the CSV files into the `data/` directory.
 >SQL-END  
 4. Open Command Prompt, change directory to the project folder  
-   - *cd "path/project_folder"*  
-   Initiaite sql connection with local infile = ON    
+   - *cd "path/project_folder"*
+Initiaite sql connection with local infile = ON    
    - *mysql --local-infile=1 -u root -p*  
-   Enter your MySQL Password. Press Enter.  
+Enter your MySQL Password. Press Enter.  
 5. Execute the full SQL-end pipeline by running: `SOURCE scripts/run_all/00_run_all.sql;`  
    *Multiple script execution is not possible on workbench. Use Command Prompt within the project directory folder.*
 >R-END  
