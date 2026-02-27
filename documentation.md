@@ -4,9 +4,7 @@ Scope: This document is intended for technical reviewers and focuses on data pro
 
 ---
 ### Overview  
-This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.  
-
-The `report.md` file highlights the structure and results of this EDA project. It further explores other areas that can be analysed for marketplace insights. 
+This document provides detailed technical documentation for the *E-COM Analytics* project, which analyzes the Brazilian Olist e-commerce dataset to derive marketplace insights. It captures the key challenges encountered during the data ingestion phase, such as data inconsistencies, constraint violations, and duplicate records, along with the systematic approaches used to resolve them. Additionally, the document outlines the data cleaning strategies, assumptions made during analysis, and the supporting database objects (procedures, functions, and views) created to enable efficient and reproducible analytics workflows.   
 
 ---
 ### Key Performance Indicators (KPIs)
@@ -126,4 +124,5 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
+
 
