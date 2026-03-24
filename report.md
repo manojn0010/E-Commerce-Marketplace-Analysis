@@ -157,5 +157,5 @@ It reflects real-world analytical thinking, structured SQL design, and effective
 
 ---
 ## References and Sources
-- Dataset (Source) [Link]: Brazilian Olist E-Commerce Public Dataset (Kaggle) [<https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce>]
+- Dataset (Source): Brazilian Olist E-Commerce Public Dataset (Kaggle) <https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce>
 - Project Repository: <https://github.com/manojn0010/E-Commerce-Marketplace-Analysis/tree/main>
