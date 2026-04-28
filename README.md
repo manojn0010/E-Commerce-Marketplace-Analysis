@@ -8,7 +8,7 @@ Using SQL for data extraction and KPI computation, the analysis focuses on key m
 
 ### Tools used
 **SQL:** MySQL  
-**Visualization:** R  
+**Visualization:** R **and** Power BI for Performance Dashboard
 
 The `report.md` file highlights the structure and results of this EDA project. It further explores other areas that can be analysed for marketplace insights.  
 
