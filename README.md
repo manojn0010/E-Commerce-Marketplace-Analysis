@@ -6,6 +6,8 @@ This project analyzes the Brazilian Olist e-commerce dataset, representing a rea
 
 Using SQL for data extraction and KPI computation, the analysis focuses on key marketplace metrics such as Gross Merchandise Value (GMV), Average Order Value (AOV), and regional performance indicators. These analytical results are integrated into an interactive dashboard that allows users to dynamically filter product categories and examine top-performing states based on customer ratings and revenue contribution.
 
+Additionally, a Power BI performance dashboard was developed to provide a more business-oriented, interactive view of marketplace performance. The dashboard highlights order trends, revenue distribution, customer metrics, and regional insights with slicers for dynamic exploration.
+
 ### Tools used
 **SQL:** MySQL  
 **Visualization:** R **and** Power BI for Performance Dashboard
@@ -17,19 +19,23 @@ The `report.md` file highlights the structure and results of this EDA project. I
 1. Clone the repository. Extract project folder to preferred location.
 2. Download the dataset from the source listed below.
 3. Extract the CSV files into the `data/` directory.
+4. Read `/.Renviron.example` before running R visuals.
 >SQL-END  
-4. Open Command Prompt, change directory to the project folder  
+5. Open Command Prompt, change directory to the project folder  
    *`cd "path/project_folder"`*  
    Initiaite sql connection with local infile = ON    
    *`mysql --local-infile=1 -u root -p`*  
    Enter your MySQL Password. Press Enter.  
-5. Execute the full SQL-end pipeline by running: `SOURCE scripts/run_all/00_run_all.sql;`  
+6. Execute the full SQL-end pipeline by running: `SOURCE scripts/run_all/00_run_all.sql;`  
    *Multiple script execution is not possible on workbench. Use Command Prompt within the project directory folder.*
 >R-END  
-6. Create an R project with the same project directory.
-7. Generate visualisations using the R scripts in `scripts/visualisation/`.
-8. Running `v0_set_up.R` file first is important for the execution of all the R files after.
-
+7. Create an R project with the same project directory.
+8. Generate visualisations using the R scripts in `scripts/visualisation/`.
+9. Running `v0_set_up.R` file first is important for the execution of all the R files after.
+>Power BI - Performance Dashboard  
+10. Focused on business reporting; build steps are not included in the repository.    
+11. The `/report` and `/outputs` show the dashboard visuals.  
+ 
 ## Data Source
 This project uses the Brazilian E-Commerce Public Dataset by Olist.  
 Due to file size limitations, the raw dataset is not included in this repository. 
@@ -42,12 +48,13 @@ After downloading, extract the CSV files into:
 The SQL scripts in `scripts/` assume this folder structure.
 
 ## Project Notes
-- Every script comes with comments that give basic understanding of the code chunks and workflow.
-- Any additional details, issues faced or project decisions are documented in `/documentation.md`.
-- This repository assumes basic knowledge like installation, launch and setup of MySQL and R.
-- The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.
-- Expected outputs can be found in `/outputs`. 
- 
+- Every script comes with comments that give basic understanding of the code chunks and workflow.  
+- Any additional details, issues faced or project decisions are documented in `/documentation.md`.  
+- This repository assumes basic knowledge like installation, launch and setup of MySQL and R.  
+- The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.  
+- Expected outputs can be found in `/outputs`.  
+- A Power BI dashboard is included to demonstrate business-facing reporting and interactive data storytelling.  
+
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
 2. How GMV compares to Average Order Value and Total Order Count?
@@ -56,7 +63,13 @@ The SQL scripts in `scripts/` assume this folder structure.
 5. Rank categories based on revenue generated
 6. Platform Monthly Revenue Trend
 
+## Dashboard Highlights (Power BI)
+- Visualises monthly order trends to identify growth and seasonality.  
+- Displays revenue share by product category; top contributors vs long tail.  
+- Highlights monthly revenue trends of top and bottom performing states based on total revenue.  
+- Tracks average customer rating with interactive filters (category, state).  
+  
 ## References
 - Dataset obtained from **Kaggle**.
 - Exploration and analysis done on **MySQL**.
-- Visualised using **R**.
+- Visualised using **R** and **Power BI**.
