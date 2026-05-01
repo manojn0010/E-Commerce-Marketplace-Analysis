@@ -153,15 +153,15 @@ Values update dynamically based on time selection, while total customers remain 
 
 - **Revenue Share by Category (Donut Chart)**  
 Highlights top 5 categories contributing to revenue, with remaining categories grouped as *others* (long-tail contribution).  
-![](outputs/powerbi/CategoryRevenueShare.png)
+<img src="outputs/powerbi/CategoryRevenueShare.png" height="300">
 
 - **Customer Rating (Gauge Chart)**  
 Tracks average rating, dynamically filtered by state and category selections.
-![](outputs/powerbi/StateMGRating.png)
+<img src="outputs/powerbi/StateMGRating.png" height="300">
 
 - **Monthly Revenue Trends (Line Charts)**  
 Compares top and bottom performing states over time, enabling independent trend analysis.
-![](outputs/powerbi/MonthlyTrends.png)
+<img src="outputs/powerbi/MonthlyTrends.png" height="300">
 
 ### Interactivity
 - Slicers for **state** and **category**  
