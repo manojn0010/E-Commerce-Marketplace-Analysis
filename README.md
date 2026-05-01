@@ -55,7 +55,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Expected outputs can be found in `/outputs`.  
 - A Power BI dashboard is included to demonstrate business-facing reporting and interactive data storytelling.
 
-<img src="outputs/powerbi/PerformanceDashboard.png" height="400" width="700">
+<img src="outputs/powerbi/PerformanceDashboard.png" height="300" width="900">
 
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
