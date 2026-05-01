@@ -55,7 +55,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Expected outputs can be found in `/outputs`.  
 - A Power BI dashboard is included to demonstrate business-facing reporting and interactive data storytelling.
 
-<img src="outputs/powerbi/PerformanceDashboard.png" height="400">
+<img src="outputs/powerbi/PerformanceDashboard.png" width="400" centre>
 
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
@@ -70,7 +70,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Displays revenue share by product category; top contributors vs long tail.  
 - Highlights monthly revenue trends of top and bottom performing states based on total revenue.  
 - Tracks average customer rating with interactive filters (category, state).  
-<img src="outputs/powerbi/OverallRating.png" width="150">
+<img src="outputs/powerbi/OverallRating.png" height="150" left>
 
 ## References
 - Dataset obtained from **Kaggle**.
