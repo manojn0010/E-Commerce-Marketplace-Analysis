@@ -56,7 +56,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - A Power BI dashboard is included to demonstrate business-facing reporting and interactive data storytelling.
 
 <p align="center">
-<img src="outputs/powerbi/PerformanceDashboard.png" height="400" width="650" >
+<img src="outputs/powerbi/PerformanceDashboard.png" height="350" width="600" >
 </p>
   
 ## Answered Key Performance Indicators (KPIs)
