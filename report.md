@@ -149,15 +149,19 @@ In addition to R-based visualisation, an interactive Power BI dashboard was deve
 - **Order Trends (Scatter Plot)**  
 Displays monthly order count and seller activity.  
 Values update dynamically based on time selection, while total customers remain constant to reflect cumulative users.
+![](outputs/powerbi_dashboard/OrderCount.png)
 
 - **Revenue Share by Category (Donut Chart)**  
 Highlights top 5 categories contributing to revenue, with remaining categories grouped as *others* (long-tail contribution).  
+![](outputs/powerbi_dashboard/CategoryRevenueShare.png)
 
 - **Customer Rating (Gauge Chart)**  
 Tracks average rating, dynamically filtered by state and category selections.
+![](outputs/powerbi_dashboard/StateMGRating.png)
 
 - **Monthly Revenue Trends (Line Charts)**  
 Compares top and bottom performing states over time, enabling independent trend analysis.
+![](outputs/powerbi_dashboard/MonthlyTrends.png)
 
 ### Interactivity
 - Slicers for **state** and **category**  
