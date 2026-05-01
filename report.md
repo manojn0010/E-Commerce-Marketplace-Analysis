@@ -47,7 +47,12 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
   - `DBI`, `RMySQL` – database connectivity  
   - `dplyr` – data manipulation  
   - `ggplot2` – visualization  
-  - `zoo` – time-series handling  
+  - `zoo` – time-series handling
+
+- **Power BI**  
+  - Interactive dashboard development  
+  - KPI monitoring and business reporting  
+  - Cross-filtering analysis
 
 ---
 ## Data Engineering & ETL Workflow
@@ -135,25 +140,49 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 
 6. **Monthly Revenue Trend**:
    ![Trend shows slight decline in sales during mid months and at the end of the year.](outputs/r_visuals/KPI6_plot.png)
-   
+
+---
+## Power BI Dashboard Overview
+In addition to R-based visualisation, an interactive Power BI dashboard was developed to present business-facing insights.
+
+### Key Dashboard Components
+- **Order Trends (Scatter Plot)**  
+Displays monthly order count and seller activity.  
+Values update dynamically based on time selection, while total customers remain constant to reflect cumulative users.
+
+- **Revenue Share by Category (Donut Chart)**  
+Highlights top 5 categories contributing to revenue, with remaining categories grouped as *others* (long-tail contribution).  
+
+- **Customer Rating (Gauge Chart)**  
+Tracks average rating, dynamically filtered by state and category selections.
+
+- **Monthly Revenue Trends (Line Charts)**  
+Compares top and bottom performing states over time, enabling independent trend analysis.
+
+### Interactivity
+- Slicers for **state** and **category**  
+- Multi-select enabled for deeper analysis  
+- Cross-filtering across visuals wherever necessary (except top vs bottom state comparison)
+
 ---
 ## Analysis Highlights
 - Identified **high-revenue states** contributing disproportionately to total GMV  
 - Observed **seasonality and growth patterns** in monthly revenue  
 - Certain product categories consistently dominate order volume   
+- Long-tail categories collectively contribute a significant share of total revenue, highlighting diversification in marketplace demand
 
 ---
 ## Analytical Areas to Explore Further
 - Extend analysis with customer segmentation  
 - Build predictive models for revenue forecasting  
-- Include orders with status other than "delivered" to find out how many actually go through  
-- Timely Delivery Analysis. Find out if it correlates with customer reviews
-- Explore payments to find customer payment preferences and timely payment settlement
+- Include non-delivered orders to analyse conversion and drop-off rates   
+- Perform delivery performance analysis and its correlation with customer reviews  
+- Analyse payment behaviour to understand preferred methods and settlement patterns  
   
 ---
 ## Conclusion
 This project demonstrates practical, end-to-end data analytics skills — from raw data ingestion to business-ready insights.  
-It reflects real-world analytical thinking, structured SQL design, and effective communication of results through visualization.
+It reflects real-world analytical thinking, structured SQL design, and effective communication of results through R-based analysis and Power BI dashboards.
 
 ---
 ## References and Sources
