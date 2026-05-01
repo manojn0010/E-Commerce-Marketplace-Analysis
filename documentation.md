@@ -60,6 +60,7 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > purpose: update orders_by_date based on dates  
 > input: start_date (yyyy-mm-dd), end_date (yyyy-mm-dd)     
 > output: truncates the table orders_by_date and updates orders from start_date to end_date     
+
 2. update_seller_metrics
 > purpose: update seller_metrics_by_state  
 > input: none; directly updates seller metrics  
@@ -71,10 +72,12 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 > purpose: get the area count within a state  
 > input: 2 character state_code  
 > output: returns the number of areas within the state, based on current customer data   
+
 2. order_cnt_by_state  
 > purpose: get the number of orders from a state  
 > input: 2 character state_code  
 > output: returns the number of orders from the state, based on current orders data  
+
 3. cost
 > purpose: to obtain total cost of an order  
 > input: alphanumeric order_id  
@@ -82,35 +85,100 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 
 ---
 ### Views  
+
 1. order_costs  
 > purpose: to obtain basic order data    
 > tables: `orders` and `customers`  
 > constraints: provides only the unique customer id and cost of the order  
 > use case: KPI 2; handle null values    
+> reporting use: contributes to overall customer count displayed in KPI cards  
+
 2. base_orders
 > purpose: to obtain detailed order data  
 > tables: `orders`, `order_items` and `customers`  
 > constraints: detailed order data, but includes null values    
 > use case: KPI 1 and KPI 6; handle null values    
+> reporting use: foundational dataset used across multiple dashboard visuals  
+
 3. category_rank_by_rev
 > purpose: aggregate total revenue by product category  
 > tables: view `base_orders` joined with `products`  
 > constraints: revenue includes product price and freight value and unknown categories
-> use case: KPI 5; ranking categories by revenue
+> use case: KPI 5; ranking categories by revenue  
+> reporting use: Power BI donut chart for revenue share (top 5 vs others)  
+
 4. state_rank_by_category
 > purpose: to rank states by review scores for each category  
 > tables: `reviews`, `order_items`, `sellers` and `products`  
 > constraints: based only sellers with more than 3 orders and known product categories   
 > use case: KPI 4; filter top 3 from each category  
+> reporting use: Power BI gauge chart for average customer rating (filtered by state and category)  
+
 5. rolling_rev_by_state
 > purpose: to calculate platform monthly revenue trends  
 > tables: `customers` joined to view `base_orders`  
 > constraints: view shows running revenue, KPI computes state total revenue
 > use case: KPI 3; aggregate revenue by state while answering KPI  
+> reporting use: Power BI line charts for top and bottom performing states (monthly revenue trends)  
+
+---
+### Reporting Layer (Power BI)
+
+- The Power BI dashboard consumes data directly from SQL views created for KPI computation.  
+- Each visual is mapped to a corresponding SQL view, ensuring traceability from data layer to reporting layer.  
+- All aggregations and transformations are handled in SQL; Power BI is used strictly for visualisation and interaction.  
+
+---
+### Visual-to-View Mapping
+
+**Order Trends (Scatter Plot)**  
+- View: `base_orders`  
+- Metrics: order count, seller count, sum of order values 
+- Behaviour:
+  - Dynamically updates based on selected month  
+  - Defaults to overall aggregation when no filter is applied  
+  - Customer count is sourced separately (from `order_costs`) and remains constant to represent cumulative platform users  
+
+**Customer Rating (Gauge Chart)**  
+- View: `state_rank_by_category`  
+- Metric: average review score  
+- Behaviour:
+  - Filtered by: State and Category (multi-select enabled)  
+  - Fully dynamic recalculation
+
+**Revenue Share by Category (Donut Chart)**  
+- View: `category_rank_by_rev`  
+- Logic:
+  - Revenue sorted in descending order  
+  - Index assigned to rank categories  
+  - Top 5 categories displayed individually  
+  - Remaining grouped as *others* (long-tail aggregation)  
+
+**Monthly Revenue Trends (Top States)**  
+- View: `rolling_rev_by_state`  
+- Logic:
+  - Top 3 states selected based on total revenue  
+  - Displays monthly revenue progression  
+
+**Monthly Revenue Trends (Bottom States)**  
+- View: `rolling_rev_by_state`  
+- Logic:
+  - Bottom 3 states selected based on total revenue  
+  - Visual interaction disabled with top states chart to allow independent comparison  
+
+#### Filters and Interaction Logic
+- Slicers:
+  - Category  
+  - State  
+- Multi-select supported for category and state  
+- Cross-filtering enabled for scatter plot and gauge chart:  
+- Tooltips:
+  - Provide contextual breakdown including revenue, order count, and time dimension  
 
 ---
 ### Visualisation
-- This project is visualised using R. Users must create a file named `.Renviron` for safety reasons.
+- This project is visualised using R (analytical exploration) and Power BI (interactive reporting).
+- Users must create a file named `.Renviron` for safety reasons.
 - The file `/.Renviron.example` contains the instructions and the template for `.Renviron`.
 - Start running R scripts only after following these instructions. The `scripts/visualisation/` scripts fail otherwise.
 - KPIs 1 and 2 are only calculated numerically.
@@ -124,5 +192,3 @@ Only entries with `ROW_NUMBER() = 1` are loaded into the final table.
 - Monetary values are assumed to be in BRL.
 - Review text sentiment analysis is not included due to language variability.
 - City-level analysis is avoided due to inconsistent naming.
-
-
