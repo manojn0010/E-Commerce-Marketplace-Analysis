@@ -54,7 +54,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.  
 - Expected outputs can be found in `/outputs`.  
 - A Power BI dashboard is included to demonstrate business-facing reporting and interactive data storytelling.  
-![](otputs/powerbi/PerformanceDashboard.png)
+![](outputs/powerbi/PerformanceDashboard.png)
 
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
