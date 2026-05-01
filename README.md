@@ -70,7 +70,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Displays revenue share by product category; top contributors vs long tail.  
 - Highlights monthly revenue trends of top and bottom performing states based on total revenue.  
 - Tracks average customer rating with interactive filters (category, state).  
-<img src="outputs/powerbi/OverallRating.png" width="400">
+<img src="outputs/powerbi/OverallRating.png" width="150">
 
 ## References
 - Dataset obtained from **Kaggle**.
