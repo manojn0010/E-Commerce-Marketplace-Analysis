@@ -54,6 +54,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - The project showcases ETL/ELT workflows, data cleaning, analytical querying, and marketplace KPI exploration.  
 - Expected outputs can be found in `/outputs`.  
 - A Power BI dashboard is included to demonstrate business-facing reporting and interactive data storytelling.  
+![](otputs/powerbi/PerformanceDashboard.png)
 
 ## Answered Key Performance Indicators (KPIs)
 1. What is the overall Gross Merchandise Value?
@@ -68,6 +69,7 @@ The SQL scripts in `scripts/` assume this folder structure.
 - Displays revenue share by product category; top contributors vs long tail.  
 - Highlights monthly revenue trends of top and bottom performing states based on total revenue.  
 - Tracks average customer rating with interactive filters (category, state).  
+![](outputs/powerbi/OverallRating.png)
   
 ## References
 - Dataset obtained from **Kaggle**.
