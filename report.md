@@ -139,7 +139,8 @@ The dataset is provided as multiple CSV files and loaded into a relational datab
 |security_and_services| 324.51 |72|
 
 6. **Monthly Revenue Trend**:
-   ![Trend shows slight decline in sales during mid months and at the end of the year.](outputs/r_visuals/KPI6_plot.png)
+<img src="outputs/r_visuals/KPI6_plot.png" height="300">
+- Trend shows slight decline in sales during mid months and at the end of the year.
 
 ---
 ## Power BI Dashboard Overview
